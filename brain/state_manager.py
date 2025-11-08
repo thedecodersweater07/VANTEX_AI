@@ -25,12 +25,23 @@ class StateType(Enum):
 
 @dataclass
 class StateUpdate:
-    """Represents a state update event."""
-    id: str = field(default_factory=lambda: str(uuid4()))
+    """Represents a state update event.
+    
+    Args:
+        namespace: The namespace of the state (e.g., 'memory', 'sensor')
+        key: The key identifying the state
+        old_value: The previous value of the state
+        new_value: The new value of the state
+        id: Unique identifier for the update (auto-generated if not provided)
+        timestamp: Timestamp of the update (auto-generated if not provided)
+        source: Source of the update (default: 'system')
+        metadata: Additional metadata for the update
+    """
     namespace: str
     key: str
     old_value: Any
     new_value: Any
+    id: str = field(default_factory=lambda: str(uuid4()))
     timestamp: float = field(default_factory=time.time)
     source: str = "system"
     metadata: Dict[str, Any] = field(default_factory=dict)

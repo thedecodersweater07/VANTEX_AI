@@ -1,10 +1,9 @@
-""
+"""
 Decision Engine Module
 
 Implements the core decision-making capabilities of the VANTEX_AI system,
 including utility theory, constraint satisfaction, and multi-criteria optimization.
 """
-
 import numpy as np
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
